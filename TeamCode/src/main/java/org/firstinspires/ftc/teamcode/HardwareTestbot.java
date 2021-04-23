@@ -94,5 +94,14 @@ public class HardwareTestbot
         rb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
- }
+
+
+
+
+    //Basic Functions
+
+    public void drive (double lf, double lb, double rf, double rb){
+
+    }
+}
 
