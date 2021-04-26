@@ -76,15 +76,20 @@ public class HardwareTestbot
         lr.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rr.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+
+
     }
-
-
     public void drive(double lf, double rf, double lr, double rr){
-        lf.setPower(0);
-        rf.setPower(0);
-        lr.setPower(0);
-        rr.setPower(0);
+        lf.setPower(lf);
+        rf.setPower(rf);
+        lr.setPower(lr);
+        rr.setPower(rr);
 
     }
+
+
+
+
 }
+
 
