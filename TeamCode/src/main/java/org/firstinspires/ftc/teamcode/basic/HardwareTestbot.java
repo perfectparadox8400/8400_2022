@@ -34,29 +34,13 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-/**
- * This is NOT an opmode.
- *
- * This class can be used to define all the specific hardware for a single robot.
- * In this case that robot is a Pushbot.
- * See PushbotTeleopTank_Iterative and others classes starting with "Pushbot" for usage examples.
- *
- * This hardware class assumes the following device names have been configured on the robot:
- * Note:  All names are lower case and some have single spaces between words.
- *
- * Motor channel:  Left  drive motor:        "left_drive"
- * Motor channel:  Right drive motor:        "right_drive"
- * Motor channel:  Manipulator drive motor:  "left_arm"
- * Servo channel:  Servo to open left claw:  "left_hand"
- * Servo channel:  Servo to open right claw: "right_hand"
- */
 public class HardwareTestbot
 {
     /* Public OpMode members. */
     public DcMotor  lf  = null;
-    public DcMotor  lb  = null;
+    public DcMotor  lr  = null;
     public DcMotor  rf  = null;
-    public DcMotor  rb  = null;
+    public DcMotor  rr  = null;
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
@@ -75,32 +59,31 @@ public class HardwareTestbot
         // Define and Initialize Motors
         lf = hwMap.get(DcMotor.class, "lf");
         rf = hwMap.get(DcMotor.class, "rf");
-        lb = hwMap.get(DcMotor.class, "lb");
-        rb = hwMap.get(DcMotor.class, "rb");
-        lb.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
-        rb.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        lr = hwMap.get(DcMotor.class, "lr");
+        rr = hwMap.get(DcMotor.class, "rr");
+        lr.setDirection(DcMotor.Direction.REVERSE);
+        rr.setDirection(DcMotor.Direction.REVERSE);
 
         // Set all motors to zero power
         lf.setPower(0);
         rf.setPower(0);
-        lb.setPower(0);
-        rb.setPower(0);
+        lr.setPower(0);
+        rr.setPower(0);
 
         // Set all motors to run without encoders.
-        // May want to use RUN_USING_ENCODERS if encoders are installed.
         lf.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rf.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        lb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        lr.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rr.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
 
 
-
-
-    //Basic Functions
-
-    public void drive (double lf, double lb, double rf, double rb){
+    public void drive(double lf, double rf, double lr, double rr){
+        lf.setPower(0);
+        rf.setPower(0);
+        lr.setPower(0);
+        rr.setPower(0);
 
     }
 }
